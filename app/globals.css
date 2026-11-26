@@ -100,6 +100,31 @@
   white-space: nowrap;
 }
 
+/* ---------- Projetos (sem cursores: eles são exclusivos do hero) ---------- */
+/* Entrada guiada pela rolagem, só com CSS. Navegador sem suporte mostra tudo parado. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      /* --i escalona os cards: cada um começa um pouco depois na rolagem. */
+      animation-range: entry calc(var(--i, 0) * 12%) entry calc(70% + var(--i, 0) * 12%);
+    }
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+}
+/* Em tela de toque não existe hover: mostra os prints já coloridos. */
+@media (hover: none) {
+  .project-shot {
+    filter: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-phase] [data-wire] {
     visibility: visible;

@@ -10,7 +10,7 @@ export const content = {
   promise: ["Site sob medida,", "do rascunho ao ar."],
   stats: [
     { value: "1", label: "ano criando sites" },
-    { value: "5", label: "sites entregues" },
+    { value: "4", label: "sites entregues" },
     // shortcut: número de exemplo. Confirme ou troque antes de publicar.
     { value: "7", label: "dias até a primeira versão" },
   ],
@@ -22,6 +22,30 @@ export const content = {
   // Se trocar a foto, ajuste para o topo da cabeça dela.
   crown: { x: 0.55, y: 0.13, width: 0.31 },
   years: "2025–2026",
+  // Seção de projetos. Prints em public/projetos/ (1440×900, só a primeira dobra de cada site).
+  projects: [
+    {
+      title: "Mauro Junior Tattoo",
+      kind: "Estúdio de tatuagem",
+      place: "Santa Isabel, SP",
+      url: "https://mauro-junior-tattoo.vercel.app/",
+      image: "/projetos/mauro-junior-tattoo.webp",
+    },
+    {
+      title: "Charme Barbearia",
+      kind: "Barbearia",
+      place: "Santa Isabel, SP",
+      url: "https://charme-barbershop.vercel.app/",
+      image: "/projetos/charme-barbershop.webp",
+    },
+    {
+      title: "Thomás Barbosa",
+      kind: "Personal trainer",
+      place: "Santa Isabel, SP",
+      url: "https://thomasbarbosa.vercel.app/",
+      image: "/projetos/thomasbarbosa.webp",
+    },
+  ],
   nav: [
     { label: "Projetos", href: "#projetos" },
     { label: "Serviços", href: "#servicos" },
