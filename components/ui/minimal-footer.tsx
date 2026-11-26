@@ -1,6 +1,7 @@
 import { ArrowUpRightIcon, MailIcon, MessageCircleIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { content } from "@/content";
+import { CurrentYear } from "./current-year";
 
 // Baseado no "minimal-footer" (shadcn), adaptado às cores e fontes do site.
 // Sem cursores/setas animadas: essa animação é exclusiva do hero.
@@ -92,7 +93,7 @@ export function MinimalFooter() {
 
         <div className="h-px w-full bg-paper/10" />
         <p className="px-5 py-5 text-center text-xs text-paper/40">
-          © {content.years} Ruan Ferreira. Todos os direitos reservados.
+          © <CurrentYear /> Ruan Ferreira. Todos os direitos reservados.
         </p>
       </div>
     </footer>

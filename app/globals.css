@@ -33,6 +33,13 @@
   mask-composite: intersect;
 }
 
+/* Links do menu (#projetos, #contato...) rolam suavemente até a seção. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--color-signal);
   outline-offset: 3px;
