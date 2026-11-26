@@ -52,7 +52,7 @@ export function MinimalFooter() {
 
   return (
     <footer id="contato" className="relative border-t border-paper/10 bg-ink">
-      <div className="mx-auto max-w-5xl bg-[radial-gradient(35%_80%_at_30%_0%,rgb(227_38_27/0.14),transparent)] md:border-x md:border-paper/10">
+      <div className="bg-[radial-gradient(35%_80%_at_20%_0%,rgb(227_38_27/0.14),transparent)]">
         <div className="grid grid-cols-6 gap-8 px-5 py-12 md:px-10">
           <div className="col-span-6 flex flex-col gap-5 md:col-span-4">
             <a href="#" className="flex w-max items-center gap-2.5 text-lg">
