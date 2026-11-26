@@ -14,8 +14,15 @@ export const content = {
     // shortcut: número de exemplo. Confirme ou troque antes de publicar.
     { value: "7", label: "dias até a primeira versão" },
   ],
-  // Seu número com DDI + DDD, só dígitos. Ex.: https://wa.me/5511999999999
-  whatsapp: "https://wa.me/5500000000000",
+  // Número com DDI + DDD, só dígitos.
+  whatsapp: "https://wa.me/5511999928021",
+  contact: {
+    phone: "(11) 99992-8021",
+    email: "ruandesenv@gmail.com",
+    instagram: { handle: "@ruandesenv", url: "https://www.instagram.com/ruandesenv/" },
+    github: "https://github.com/RuanFerreira533",
+    linkedin: "https://www.linkedin.com/in/ruan-ferreira-b79778231",
+  },
   // Foto sem fundo (PNG com transparência), cortada no peito. Fica em public/.
   photo: "/ruan.png",
   // Onde a coroa de setas gira, em frações da foto: centro (x, y) e meia-largura.
