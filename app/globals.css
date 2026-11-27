@@ -116,7 +116,6 @@
     .reveal-clip,
     .reveal-zoom,
     .reveal-line,
-    .reveal-line-y,
     .reveal-pop {
       animation-timing-function: linear;
       animation-fill-mode: both;
@@ -141,13 +140,35 @@
       animation-name: draw-x;
       transform-origin: left;
     }
-    .reveal-line-y {
-      animation-name: draw-y;
-      transform-origin: top;
-    }
     .reveal-pop {
       animation-name: pop;
     }
+
+    /* Linha do tempo de "Como trabalho": a "tela" da linha termina no meio da viewport
+       (inset de 50% embaixo), então o progresso é o quanto da linha já passou do meio da tela. */
+    .timeline-track {
+      view-timeline: --timeline block;
+      view-timeline-inset: 0% 50%;
+    }
+    .timeline-fill {
+      animation: draw-y linear both;
+      animation-timeline: --timeline;
+      animation-range: entry-crossing 0% entry-crossing 100%;
+    }
+    /* Mesma referência (meio da tela): o ícone acende quando a ponta da linha chega nele. */
+    .timeline-dot {
+      animation: light-up linear both;
+      animation-timeline: view(block 0% 50%);
+      animation-range: entry-crossing 0% entry-crossing 100%;
+    }
+  }
+}
+@keyframes light-up {
+  from {
+    border-color: rgb(243 238 232 / 0.2);
+    background-color: var(--color-ink);
+    color: rgb(243 238 232 / 0.4);
+    box-shadow: none;
   }
 }
 @keyframes rise {

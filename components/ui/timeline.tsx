@@ -21,17 +21,10 @@ export interface TimelineItem {
 
 const gaps = { default: "gap-4", compact: "gap-2", spacious: "gap-10" };
 
-const connectors: Record<Status, string> = {
-  default: "bg-paper/15",
-  completed: "bg-signal",
-  active: "bg-signal/60",
-  pending: "bg-paper/10",
-};
-
 const icons: Record<Status, string> = {
   default: "border-paper/25 bg-ink text-paper/60",
-  completed: "border-signal bg-signal text-paper",
-  active: "border-signal bg-ink text-signal",
+  completed: "border-signal bg-signal text-paper shadow-[0_0_18px_rgb(227_38_27/0.5)]",
+  active: "border-signal bg-ink text-signal shadow-[0_0_18px_rgb(227_38_27/0.35)]",
   pending: "border-paper/15 bg-ink text-paper/40",
 };
 
@@ -54,17 +47,25 @@ export function Timeline({
 }) {
   return (
     <ol className={`relative flex flex-col ${gaps[variant]} ${className}`}>
+      {/* Uma linha só, do centro do 1º ícone até o fim: o preenchimento vermelho acompanha a rolagem
+          com a ponta no meio da tela (timeline-track / timeline-fill no globals.css). */}
+      {showConnectors && (
+        <span aria-hidden className="timeline-track absolute bottom-0 left-5 top-5 w-px -translate-x-1/2 bg-paper/10">
+          <span className="timeline-fill absolute inset-0 origin-top bg-signal shadow-[0_0_12px_var(--color-signal)]" />
+        </span>
+      )}
       {items.map((item, i) => {
         const status = item.status ?? "default";
+        const last = i === items.length - 1;
         return (
           // Entrada guiada pela rolagem: cada etapa sobe um pouco depois da anterior.
           <li key={item.id} className="reveal relative flex gap-5 pb-2" style={{ "--i": i * 0.3 } as CSSProperties}>
-            {showConnectors && i < items.length - 1 && (
-              <span aria-hidden className={`reveal-line-y absolute left-5 top-12 h-full w-px ${connectors[status]}`} />
-            )}
+            {/* Esconde a linha abaixo do último ícone. */}
+            {showConnectors && last && <span aria-hidden className="absolute bottom-0 left-4 top-5 w-2 bg-ink" />}
 
             <div className="relative z-10 flex shrink-0">
-              <div className={`flex size-10 items-center justify-center rounded-full border-2 ${icons[status]}`}>
+              {/* timeline-dot: começa apagado e acende quando a ponta da linha chega nele. */}
+              <div className={`timeline-dot flex size-10 items-center justify-center rounded-full border-2 ${icons[status]}`}>
                 {item.icon ?? statusIcon(status)}
               </div>
             </div>
