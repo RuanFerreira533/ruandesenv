@@ -21,7 +21,8 @@ export default function Hero() {
           <span className="size-3.5 bg-signal" aria-hidden />
           <span className="narrow uppercase tracking-wide">{content.name}</span>
         </a>
-        <nav data-wire="1" className="hidden gap-8 text-sm text-paper/70 md:flex">
+        {/* Fora da montagem dos cursores (sem data-wire) e centrado na tela, não entre logo e botão. */}
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-8 text-sm text-paper/70 md:flex">
           {content.nav.map((item) => (
             <a key={item.href} href={item.href} className="transition-colors hover:text-paper">
               {item.label}
