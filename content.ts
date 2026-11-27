@@ -77,10 +77,26 @@ export const content = {
     },
   ],
   process: [
-    { title: "Conversa", text: "Você me conta pelo WhatsApp o que faz, para quem e o que o site precisa resolver." },
-    { title: "Primeira versão", text: "Monto o site com os seus textos e fotos e te mando o link para ver no celular." },
-    { title: "Ajustes", text: "Você pede as mudanças e eu ajusto até ficar do jeito que você quer." },
-    { title: "No ar", text: "Publico o site no seu domínio, conecto o WhatsApp e te entrego tudo funcionando." },
+    {
+      title: "Conversa",
+      text: "Você me conta pelo WhatsApp o que faz, para quem e o que o site precisa resolver.",
+      detail: "Pelo WhatsApp, no seu tempo",
+    },
+    {
+      title: "Primeira versão",
+      text: "Monto o site com os seus textos e fotos e te mando o link para ver no celular.",
+      detail: "Link para abrir no seu celular",
+    },
+    {
+      title: "Ajustes",
+      text: "Você pede as mudanças e eu ajusto até ficar do jeito que você quer.",
+      detail: "Você aprova cada mudança",
+    },
+    {
+      title: "No ar",
+      text: "Publico o site no seu domínio, conecto o WhatsApp e te entrego tudo funcionando.",
+      detail: "Domínio e WhatsApp conectados",
+    },
   ],
   nav: [
     { label: "Projetos", href: "#projetos" },

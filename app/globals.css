@@ -116,6 +116,7 @@
     .reveal-clip,
     .reveal-zoom,
     .reveal-line,
+    .reveal-line-y,
     .reveal-pop {
       animation-timing-function: linear;
       animation-fill-mode: both;
@@ -139,6 +140,10 @@
     .reveal-line {
       animation-name: draw-x;
       transform-origin: left;
+    }
+    .reveal-line-y {
+      animation-name: draw-y;
+      transform-origin: top;
     }
     .reveal-pop {
       animation-name: pop;
@@ -174,6 +179,11 @@
 @keyframes draw-x {
   from {
     transform: scaleX(0);
+  }
+}
+@keyframes draw-y {
+  from {
+    transform: scaleY(0);
   }
 }
 @keyframes pop {
