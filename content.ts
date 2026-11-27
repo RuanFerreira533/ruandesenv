@@ -53,27 +53,80 @@ export const content = {
       image: "/projetos/thomasbarbosa.webp",
     },
   ],
-  // shortcut: serviços e etapas de exemplo, baseados nos sites já entregues. Revise com o que você oferece.
+  // Serviços tirados do que já está no ar (GitHub + Vercel). "work" é a prova: onde você já fez.
   services: [
     {
-      title: "Landing page",
-      text: "Uma página só, focada em uma ação: chamar no WhatsApp, agendar ou pedir orçamento.",
-      tags: ["Lançamentos", "Anúncios", "Serviço único"],
+      title: "Sites e landing pages",
+      summary: "Páginas rápidas que levam o visitante a chamar no WhatsApp, pedir orçamento ou agendar.",
+      features: [
+        "Página única ou site com várias seções",
+        "Botões e formulário que abrem o WhatsApp",
+        "Avaliações, mapa e perguntas frequentes",
+        "Rápido no celular e pronto para o Google",
+      ],
+      work: [
+        { name: "Mauro Junior Tattoo", url: "https://mauro-junior-tattoo.vercel.app/" },
+        { name: "Thomás Barbosa", url: "https://thomasbarbosa.vercel.app/" },
+        { name: "Charme Barbearia", url: "https://charme-barbershop.vercel.app/" },
+      ],
     },
     {
-      title: "Site completo",
-      text: "Várias seções para mostrar o seu negócio: sobre, serviços, galeria, avaliações e localização.",
-      tags: ["Barbearias", "Estúdios", "Profissionais"],
+      title: "Agendamento online",
+      summary: "O cliente escolhe serviço, profissional e horário pelo site. Você confirma pelo WhatsApp.",
+      features: [
+        "Horários por profissional e por dia da semana",
+        "Pedido de horário só com o CPF",
+        "Conta do cliente para acompanhar os horários",
+        "Agenda da semana com agendado, confirmado, concluído e faltou",
+      ],
+      work: [{ name: "Charme Barbearia", url: "https://charme-barbershop.vercel.app/agendar.html" }],
     },
     {
-      title: "Pronto para o Google",
-      text: "Site rápido no celular, com título, descrição e mapa certos para quem procura você na sua cidade.",
-      tags: ["Velocidade", "SEO local", "Mobile"],
+      title: "Sistema de gestão",
+      summary: "Um painel para o dono controlar o dia a dia: agenda, clientes, vendas e dinheiro.",
+      features: [
+        "Clientes com histórico e lista de quem sumiu para chamar de novo",
+        "Profissionais, serviços e comissões",
+        "Caixa com pagamento dividido e fechamento do dia",
+        "Financeiro, despesas e relatório de lucro",
+      ],
+      work: [{ name: "Painel da Charme Barbearia", url: "https://charme-barbershop.vercel.app/" }],
     },
     {
-      title: "Ajustes e manutenção",
-      text: "Depois do site no ar, eu atualizo textos, fotos e preços sempre que o seu negócio mudar.",
-      tags: ["Textos", "Fotos", "Preços"],
+      title: "Controle de estoque",
+      summary: "Cada produto com custo, preço e quantidade. Toda entrada, venda e perda fica registrada.",
+      features: [
+        "Entradas, vendas, devoluções, perdas e ajustes",
+        "Aviso de produto sem estoque na hora da venda",
+        "Custo e margem de cada produto nos relatórios",
+        "Histórico de quem mexeu e por quê",
+      ],
+      work: [{ name: "Charme Barbearia", url: "https://charme-barbershop.vercel.app/" }],
+    },
+    {
+      title: "Catálogos",
+      summary: "Serviços e produtos com preço claro, para o cliente escolher antes de chamar.",
+      features: [
+        "Preços diferentes por dia da semana",
+        "Produtos para separar pelo WhatsApp",
+        "Páginas por categoria ou por estilo",
+        "Produtos e preços puxados do painel",
+      ],
+      work: [
+        { name: "Catálogo da Charme", url: "https://charme-barbershop.vercel.app/catalogo.html" },
+        { name: "Estilos do Mauro Junior", url: "https://mauro-junior-tattoo.vercel.app/" },
+      ],
+    },
+    {
+      title: "Convites e eventos",
+      summary: "Convite online com confirmação de presença e lista de presentes.",
+      features: [
+        "Data, local e programação do dia",
+        "Confirmação de presença com acompanhantes",
+        "Presentes com chave PIX para copiar",
+        "Fotos e botão para abrir o mapa",
+      ],
+      work: [{ name: "Convite Sthefany e Ruan", url: "https://sthefany-ruan.vercel.app/" }],
     },
   ],
   process: [
