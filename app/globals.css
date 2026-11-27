@@ -107,15 +107,41 @@
   white-space: nowrap;
 }
 
-/* ---------- Projetos (sem cursores: eles são exclusivos do hero) ---------- */
-/* Entrada guiada pela rolagem, só com CSS. Navegador sem suporte mostra tudo parado. */
+/* ---------- Entradas de projetos e rodapé (sem cursores: eles são exclusivos do hero) ---------- */
+/* Guiadas pela rolagem, só com CSS. Navegador sem suporte mostra tudo parado. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .reveal {
-      animation: rise linear both;
+    .reveal,
+    .reveal-x,
+    .reveal-clip,
+    .reveal-zoom,
+    .reveal-line,
+    .reveal-pop {
+      animation-timing-function: linear;
+      animation-fill-mode: both;
       animation-timeline: view();
-      /* --i escalona os cards: cada um começa um pouco depois na rolagem. */
+      /* --i escalona: cada item começa um pouco depois na rolagem. No rodapé, mantenha
+         70% + --i × 12% abaixo de 100%, senão o fim da página chega antes da animação acabar. */
       animation-range: entry calc(var(--i, 0) * 12%) entry calc(70% + var(--i, 0) * 12%);
+    }
+    .reveal {
+      animation-name: rise;
+    }
+    .reveal-x {
+      animation-name: slide-x;
+    }
+    .reveal-clip {
+      animation-name: unclip;
+    }
+    .reveal-zoom {
+      animation-name: zoom-out;
+    }
+    .reveal-line {
+      animation-name: draw-x;
+      transform-origin: left;
+    }
+    .reveal-pop {
+      animation-name: pop;
     }
   }
 }
@@ -123,6 +149,37 @@
   from {
     opacity: 0;
     transform: translateY(48px);
+  }
+}
+@keyframes slide-x {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+/* Abre como cortina, de baixo para cima. */
+@keyframes unclip {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes zoom-out {
+  from {
+    transform: scale(1.18);
+  }
+}
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
   }
 }
 /* Em tela de toque não existe hover: mostra os prints já coloridos. */

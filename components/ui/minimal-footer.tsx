@@ -1,10 +1,12 @@
 import { ArrowUpRightIcon, MailIcon, MessageCircleIcon } from "lucide-react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { content } from "@/content";
 import { CurrentYear } from "./current-year";
 
 // Baseado no "minimal-footer" (shadcn), adaptado às cores e fontes do site.
-// Sem cursores/setas animadas: essa animação é exclusiva do hero.
+// Sem cursores/setas animadas: essa animação é exclusiva do hero. Aqui a entrada é guiada pela
+// rolagem (classes reveal-* no globals.css); --i escalona cada item.
+const d = (i: number) => ({ "--i": i }) as CSSProperties;
 
 // O lucide-react 1.x removeu os ícones de marca, então GitHub, LinkedIn e Instagram vão em SVG.
 const GithubIcon = () => (
@@ -52,34 +54,37 @@ export function MinimalFooter() {
     href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {};
 
   return (
-    <footer id="contato" className="relative border-t border-paper/10 bg-ink">
+    <footer id="contato" className="relative bg-ink">
+      <span aria-hidden className="reveal-line absolute inset-x-0 top-0 h-px bg-paper/15" />
       <div className="bg-[radial-gradient(35%_80%_at_20%_0%,rgb(227_38_27/0.14),transparent)]">
         <div className="grid grid-cols-6 gap-8 px-5 py-12 md:px-10">
           <div className="col-span-6 flex flex-col gap-5 md:col-span-4">
-            <a href="#" className="flex w-max items-center gap-2.5 text-lg">
+            <a href="#" className="reveal-x flex w-max items-center gap-2.5 text-lg">
               <span className="size-3.5 bg-signal" aria-hidden />
               <span className="narrow uppercase tracking-wide">{content.name}</span>
             </a>
-            <p className="max-w-sm text-sm leading-relaxed text-paper/60 text-balance">
+            <p className="reveal max-w-sm text-sm leading-relaxed text-paper/60 text-balance" style={d(0.3)}>
               {content.role}. {content.location}.
             </p>
             <a
               href={content.whatsapp}
               {...external(content.whatsapp)}
-              className="group flex w-max items-center gap-2 bg-signal px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-paper hover:text-ink"
+              style={d(0.6)}
+              className="reveal group flex w-max items-center gap-2 bg-signal px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-paper hover:text-ink"
             >
               Vamos conversar
               <ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
             <div className="flex gap-2">
-              {social.map((item) => (
+              {social.map((item, i) => (
                 <a
                   key={item.label}
                   href={item.href}
                   {...external(item.href)}
                   aria-label={item.label}
                   title={item.label}
-                  className="rounded-md border border-paper/15 p-2 text-paper/70 transition-colors hover:border-signal hover:bg-signal/10 hover:text-paper"
+                  style={d(0.8 + i * 0.2)}
+                  className="reveal-pop rounded-md border border-paper/15 p-2 text-paper/70 transition-colors hover:border-signal hover:bg-signal/10 hover:text-paper"
                 >
                   {item.icon}
                 </a>
@@ -87,12 +92,12 @@ export function MinimalFooter() {
             </div>
           </div>
 
-          <FooterColumn title="Navegação" links={pages} external={external} />
-          <FooterColumn title="Contato" links={reach} external={external} />
+          <FooterColumn title="Navegação" links={pages} external={external} i={0.4} />
+          <FooterColumn title="Contato" links={reach} external={external} i={0.8} />
         </div>
 
-        <div className="h-px w-full bg-paper/10" />
-        <p className="px-5 py-5 text-center text-xs text-paper/40">
+        <div className="reveal-line h-px w-full bg-paper/10" />
+        <p className="reveal px-5 py-5 text-center text-xs text-paper/40">
           © <CurrentYear /> Ruan Ferreira. Todos os direitos reservados.
         </p>
       </div>
@@ -104,13 +109,15 @@ function FooterColumn({
   title,
   links,
   external,
+  i,
 }: {
   title: string;
   links: { title: string; href: string }[];
   external: (href: string) => object;
+  i: number;
 }) {
   return (
-    <div className="col-span-6 sm:col-span-3 md:col-span-1">
+    <div className="reveal col-span-6 sm:col-span-3 md:col-span-1" style={d(i)}>
       <span className="mb-2 block text-xs text-paper/40">{title}</span>
       <div className="flex flex-col gap-1">
         {links.map(({ title, href }) => (
