@@ -19,7 +19,7 @@ export interface TimelineItem {
   content?: ReactNode;
 }
 
-const gaps = { default: "gap-4", compact: "gap-2", spacious: "gap-10" };
+const gaps = { default: "gap-4", compact: "gap-2", spacious: "gap-10 md:gap-16" };
 
 const icons: Record<Status, string> = {
   default: "border-paper/25 bg-ink text-paper/60",
@@ -29,8 +29,8 @@ const icons: Record<Status, string> = {
 };
 
 function statusIcon(status: Status) {
-  if (status === "completed") return <CheckIcon className="size-4" />;
-  if (status === "active" || status === "pending") return <ClockIcon className="size-4" />;
+  if (status === "completed") return <CheckIcon className="size-4 md:size-5" />;
+  if (status === "active" || status === "pending") return <ClockIcon className="size-4 md:size-5" />;
   return <span className="size-2 rounded-full bg-current" />;
 }
 
@@ -50,7 +50,7 @@ export function Timeline({
       {/* Uma linha só, do centro do 1º ícone até o fim: o preenchimento vermelho acompanha a rolagem
           com a ponta no meio da tela (timeline-track / timeline-fill no globals.css). */}
       {showConnectors && (
-        <span aria-hidden className="timeline-track absolute bottom-0 left-5 top-5 w-px -translate-x-1/2 bg-paper/10">
+        <span aria-hidden className="timeline-track absolute bottom-0 left-5 top-5 w-px md:left-7 md:top-7 -translate-x-1/2 bg-paper/10">
           <span className="timeline-fill absolute inset-0 origin-top bg-signal shadow-[0_0_12px_var(--color-signal)]" />
         </span>
       )}
@@ -59,22 +59,22 @@ export function Timeline({
         const last = i === items.length - 1;
         return (
           // Entrada guiada pela rolagem: cada etapa sobe um pouco depois da anterior.
-          <li key={item.id} className="reveal relative flex gap-5 pb-2" style={{ "--i": i * 0.3 } as CSSProperties}>
+          <li key={item.id} className="reveal relative flex gap-5 pb-2 md:gap-8" style={{ "--i": i * 0.3 } as CSSProperties}>
             {/* Esconde a linha abaixo do último ícone. */}
-            {showConnectors && last && <span aria-hidden className="absolute bottom-0 left-4 top-5 w-2 bg-ink" />}
+            {showConnectors && last && <span aria-hidden className="absolute bottom-0 left-4 top-5 w-2 bg-ink md:left-6 md:top-7" />}
 
             <div className="relative z-10 flex shrink-0">
               {/* timeline-dot: começa apagado e acende quando a ponta da linha chega nele. */}
-              <div className={`timeline-dot flex size-10 items-center justify-center rounded-full border-2 ${icons[status]}`}>
+              <div className={`timeline-dot flex size-10 items-center md:size-14 justify-center rounded-full border-2 ${icons[status]}`}>
                 {item.icon ?? statusIcon(status)}
               </div>
             </div>
 
-            <div className="flex min-w-0 flex-1 flex-col gap-2 pt-1">
-              {item.label && <span className="text-xs text-paper/40">{item.label}</span>}
-              <h3 className="narrow text-2xl uppercase leading-tight">{item.title}</h3>
+            <div className="flex min-w-0 flex-1 flex-col gap-2 pt-1 md:gap-3 md:pt-2">
+              {item.label && <span className="text-xs text-paper/40 md:text-sm">{item.label}</span>}
+              <h3 className="narrow text-2xl uppercase leading-tight md:text-4xl">{item.title}</h3>
               {item.description && (
-                <p className="max-w-[52ch] text-sm leading-relaxed text-paper/60">{item.description}</p>
+                <p className="max-w-[56ch] text-sm leading-relaxed text-paper/60 md:text-lg">{item.description}</p>
               )}
               {item.content && <div className="mt-2">{item.content}</div>}
             </div>
