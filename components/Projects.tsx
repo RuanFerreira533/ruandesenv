@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { content } from "@/content";
+import SectionHeading from "./SectionHeading";
 
 // Regra do site: a animação de cursores/setas é exclusiva do hero. Aqui o movimento é outro:
 // na entrada, os cards sobem, o print abre como cortina com zoom out e o número desliza;
@@ -8,25 +9,18 @@ import { content } from "@/content";
 export default function Projects() {
   return (
     <section id="projetos" className="relative bg-ink px-5 py-20 md:px-10 md:py-28">
-      {/* Linha do topo que se desenha da esquerda para a direita. */}
-      <span aria-hidden className="reveal-line absolute inset-x-0 top-0 h-px bg-paper/10" />
-      <div className="flex flex-wrap items-end justify-between gap-6">
-        <div>
-          <p className="reveal-x text-xs text-paper/50">01 / Projetos selecionados</p>
-          <h2
-            className="reveal-clip narrow mt-3 text-[clamp(2.75rem,6vw,5.5rem)] uppercase leading-[0.9]"
-            style={{ "--i": 0.5 } as CSSProperties}
+      <SectionHeading
+        label="01 / Projetos selecionados"
+        title="Sites no ar, trazendo clientes"
+        aside={
+          <p
+            className="reveal max-w-[34ch] text-sm leading-relaxed text-paper/60 [@media(hover:none)]:hidden"
+            style={{ "--i": 1 } as CSSProperties}
           >
-            Sites no ar, trazendo clientes<span className="text-signal">.</span>
-          </h2>
-        </div>
-        <p
-          className="reveal max-w-[34ch] text-sm leading-relaxed text-paper/60 [@media(hover:none)]:hidden"
-          style={{ "--i": 1 } as CSSProperties}
-        >
-          Passe o mouse em um projeto para ver as cores. Clique para abrir o site.
-        </p>
-      </div>
+            Passe o mouse em um projeto para ver as cores. Clique para abrir o site.
+          </p>
+        }
+      />
 
       <ul className="mt-12 grid gap-x-6 gap-y-12 md:grid-cols-3">
         {content.projects.map((p, i) => (

@@ -53,6 +53,35 @@ export const content = {
       image: "/projetos/thomasbarbosa.webp",
     },
   ],
+  // shortcut: serviços e etapas de exemplo, baseados nos sites já entregues. Revise com o que você oferece.
+  services: [
+    {
+      title: "Landing page",
+      text: "Uma página só, focada em uma ação: chamar no WhatsApp, agendar ou pedir orçamento.",
+      tags: ["Lançamentos", "Anúncios", "Serviço único"],
+    },
+    {
+      title: "Site completo",
+      text: "Várias seções para mostrar o seu negócio: sobre, serviços, galeria, avaliações e localização.",
+      tags: ["Barbearias", "Estúdios", "Profissionais"],
+    },
+    {
+      title: "Pronto para o Google",
+      text: "Site rápido no celular, com título, descrição e mapa certos para quem procura você na sua cidade.",
+      tags: ["Velocidade", "SEO local", "Mobile"],
+    },
+    {
+      title: "Ajustes e manutenção",
+      text: "Depois do site no ar, eu atualizo textos, fotos e preços sempre que o seu negócio mudar.",
+      tags: ["Textos", "Fotos", "Preços"],
+    },
+  ],
+  process: [
+    { title: "Conversa", text: "Você me conta pelo WhatsApp o que faz, para quem e o que o site precisa resolver." },
+    { title: "Primeira versão", text: "Monto o site com os seus textos e fotos e te mando o link para ver no celular." },
+    { title: "Ajustes", text: "Você pede as mudanças e eu ajusto até ficar do jeito que você quer." },
+    { title: "No ar", text: "Publico o site no seu domínio, conecto o WhatsApp e te entrego tudo funcionando." },
+  ],
   nav: [
     { label: "Projetos", href: "#projetos" },
     { label: "Serviços", href: "#servicos" },
