@@ -17,12 +17,12 @@ export default function Hero() {
 
       {/* Topo */}
       <header className="relative z-30 flex items-center justify-between gap-6 px-5 pt-5 md:px-10 md:pt-7">
-        <a href="#" data-wire="0" className="flex items-center gap-2.5 text-lg">
+        <a href="#" data-wire="0" className="flex items-center gap-2.5 text-lg md:text-xl">
           <span className="size-3.5 bg-signal" aria-hidden />
           <span className="narrow uppercase tracking-wide">{content.name}</span>
         </a>
         {/* Fora da montagem dos cursores (sem data-wire) e centrado na tela, não entre logo e botão. */}
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-8 text-sm text-paper/70 md:flex">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-10 text-sm text-paper/70 md:flex md:text-base">
           {content.nav.map((item) => (
             <a key={item.href} href={item.href} className="transition-colors hover:text-paper">
               {item.label}
@@ -34,13 +34,13 @@ export default function Hero() {
           target="_blank"
           rel="noopener noreferrer"
           data-wire="2"
-          className="rounded-full border border-paper/25 px-4 py-2 text-sm transition-colors hover:border-signal hover:bg-signal"
+          className="rounded-full border border-paper/25 px-4 py-2 text-sm transition-colors md:px-5 md:py-2.5 md:text-base hover:border-signal hover:bg-signal"
         >
           Chamar no WhatsApp
         </a>
       </header>
 
-      <div className="relative z-30 flex items-start justify-between gap-6 px-5 pt-6 text-xs md:px-10">
+      <div className="relative z-30 flex items-start justify-between gap-6 px-5 pt-6 text-xs md:px-10 md:text-sm">
         <p data-wire="3" className="font-semibold leading-snug text-signal">
           {content.tagline[0]}
           <br />
@@ -89,20 +89,20 @@ export default function Hero() {
             {content.name}
             <span className="text-signal">.</span>
           </h1>
-          <p data-wire="9" className="mt-4 max-w-[26ch] text-lg font-bold leading-tight text-signal">
+          <p data-wire="9" className="mt-4 max-w-[26ch] text-lg font-bold md:text-2xl leading-tight text-signal">
             {content.role}
           </p>
-          <p data-wire="10" className="mt-3 max-w-[38ch] text-sm leading-relaxed text-paper/65">
+          <p data-wire="10" className="mt-3 max-w-[38ch] text-sm leading-relaxed text-paper/65 md:text-base lg:text-lg">
             {content.bio}
           </p>
           <a
             href="#projetos"
             data-wire="11"
-            className="mt-6 bg-signal px-6 py-3 text-sm font-semibold transition-colors hover:bg-paper hover:text-ink"
+            className="mt-6 bg-signal px-6 py-3 text-sm font-semibold md:px-8 md:py-4 md:text-base transition-colors hover:bg-paper hover:text-ink"
           >
             Ver projetos
           </a>
-          <p data-wire="12" className="mt-4 flex items-center gap-2 text-xs text-paper/50">
+          <p data-wire="12" className="mt-4 flex items-center gap-2 text-xs text-paper/50 md:text-sm">
             <span className="size-1.5 rounded-full bg-paper/50" aria-hidden />
             {content.location}
           </p>
@@ -111,7 +111,7 @@ export default function Hero() {
         <div className="hidden lg:block" />
 
         <div className="flex flex-col gap-8 lg:items-end lg:self-center">
-          <p data-wire="13" className="flex items-start gap-3 text-sm leading-snug">
+          <p data-wire="13" className="flex items-start gap-3 text-sm leading-snug md:text-base">
             <span className="mt-0.5 grid size-7 place-items-center rounded-full border border-paper/30" aria-hidden>
               <span className="size-1.5 rounded-full bg-signal" />
             </span>
@@ -121,13 +121,13 @@ export default function Hero() {
               <span className="text-paper/60">{content.promise[1]}</span>
             </span>
           </p>
-          <dl data-wire="14" className="grid grid-cols-3 gap-4 lg:grid-cols-[auto_9rem] lg:gap-x-4 lg:gap-y-3">
+          <dl data-wire="14" className="grid grid-cols-3 gap-4 lg:grid-cols-[auto_11rem] lg:gap-x-4 lg:gap-y-3">
             {content.stats.map((s) => (
               <div key={s.label} className="contents">
                 <dt className="narrow order-1 text-5xl leading-none text-signal lg:order-none lg:text-6xl">
                   {s.value}
                 </dt>
-                <dd className="order-2 self-center text-xs leading-snug text-paper/60 lg:order-none">
+                <dd className="order-2 self-center text-xs leading-snug md:text-sm text-paper/60 lg:order-none">
                   {s.label}
                 </dd>
               </div>
@@ -137,7 +137,7 @@ export default function Hero() {
       </div>
 
       {/* Rodapé do hero */}
-      <footer className="relative z-30 flex flex-wrap items-center justify-between gap-4 border-t border-paper/10 px-5 py-4 text-xs text-paper/60 md:px-10">
+      <footer className="relative z-30 flex flex-wrap items-center justify-between gap-4 border-t border-paper/10 px-5 py-4 text-xs text-paper/60 md:px-10 md:text-sm">
         <a href="#projetos" data-wire="15" className="flex items-center gap-3 transition-colors hover:text-paper">
           <span className="grid size-7 place-items-center rounded-full border border-paper/30" aria-hidden>
             <span className="size-0 border-y-4 border-l-[6px] border-y-transparent border-l-signal" />

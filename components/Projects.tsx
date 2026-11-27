@@ -14,7 +14,7 @@ export default function Projects() {
         title="Sites no ar, trazendo clientes"
         aside={
           <p
-            className="reveal max-w-[34ch] text-sm leading-relaxed text-paper/60 [@media(hover:none)]:hidden"
+            className="reveal max-w-[34ch] text-sm leading-relaxed md:text-base text-paper/60 [@media(hover:none)]:hidden"
             style={{ "--i": 1 } as CSSProperties}
           >
             Passe o mouse em um projeto para ver as cores. Clique para abrir o site.
@@ -34,7 +34,7 @@ export default function Projects() {
                   sizes="(min-width: 768px) 33vw, 100vw"
                   className="project-shot reveal-zoom object-cover object-top grayscale transition-[filter,scale] duration-700 ease-out group-hover:scale-[1.04] group-hover:grayscale-0 group-focus-visible:scale-[1.04] group-focus-visible:grayscale-0"
                 />
-                <span className="absolute bottom-3 right-3 translate-y-3 rounded-full bg-ink/80 px-3 py-1.5 text-xs opacity-0 backdrop-blur transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+                <span className="absolute bottom-3 right-3 translate-y-3 rounded-full bg-ink/80 px-3 py-1.5 text-xs opacity-0 md:text-sm backdrop-blur transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
                   Abrir site ↗
                 </span>
               </div>
@@ -44,8 +44,8 @@ export default function Projects() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="flex-1">
-                  <h3 className="narrow text-2xl uppercase leading-tight">{p.title}</h3>
-                  <p className="mt-1 text-xs text-paper/50">
+                  <h3 className="narrow text-2xl uppercase leading-tight md:text-3xl">{p.title}</h3>
+                  <p className="mt-1 text-xs text-paper/50 md:text-sm">
                     {p.kind}, {p.place}
                   </p>
                 </div>

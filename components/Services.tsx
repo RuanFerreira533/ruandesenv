@@ -20,16 +20,16 @@ export default function Services() {
               aria-hidden
               className="absolute inset-0 -z-10 origin-left scale-x-0 bg-signal/10 transition-transform duration-500 ease-out group-hover:scale-x-100"
             />
-            <h3 className="narrow text-4xl uppercase leading-none transition-[translate,color] duration-500 group-hover:translate-x-3 group-hover:text-signal md:text-5xl">
+            <h3 className="narrow text-4xl uppercase leading-none transition-[translate,color] duration-500 group-hover:translate-x-3 group-hover:text-signal md:text-5xl lg:text-6xl">
               {s.title}
             </h3>
             <div>
-              <p className="max-w-[48ch] text-sm leading-relaxed text-paper/60 transition-colors duration-500 group-hover:text-paper/85">
+              <p className="max-w-[48ch] text-sm leading-relaxed md:text-lg text-paper/60 transition-colors duration-500 group-hover:text-paper/85">
                 {s.text}
               </p>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {s.tags.map((t) => (
-                  <li key={t} className="rounded-full border border-paper/15 px-3 py-1 text-xs text-paper/60">
+                  <li key={t} className="rounded-full border border-paper/15 px-3 py-1 text-xs text-paper/60 md:px-4 md:py-1.5 md:text-sm">
                     {t}
                   </li>
                 ))}

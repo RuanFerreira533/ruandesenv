@@ -16,7 +16,7 @@ export default function SectionHeading({
       <span aria-hidden className="reveal-line absolute inset-x-0 top-0 h-px bg-paper/10" />
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
-          <p className="reveal-x text-xs text-paper/50">{label}</p>
+          <p className="reveal-x text-xs text-paper/50 md:text-sm">{label}</p>
           <h2
             className="reveal-clip narrow mt-3 text-[clamp(2.75rem,6vw,5.5rem)] uppercase leading-[0.9]"
             style={{ "--i": 0.5 } as CSSProperties}
