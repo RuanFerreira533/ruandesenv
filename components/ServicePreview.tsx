@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { content } from "@/content";
+import { Iphone } from "./ui/iphone";
 
 type Preview = (typeof content.services)[number]["preview"];
 
@@ -7,6 +8,7 @@ type Preview = (typeof content.services)[number]["preview"];
 // Painel e estoque exigem login, então são miniaturas desenhadas com os módulos reais do sistema
 // e números de exemplo (avisado na barra).
 export default function ServicePreview({ preview }: { preview: Preview }) {
+  if (preview.kind === "live" && preview.url) return <LivePhone url={preview.url} address={preview.address} />;
   const example = preview.kind === "panel" || preview.kind === "stock";
   return (
     <figure className="overflow-hidden rounded-md border border-paper/15 bg-ink shadow-[0_30px_80px_-30px_rgb(227_38_27/0.35)]">
@@ -34,6 +36,23 @@ export default function ServicePreview({ preview }: { preview: Preview }) {
         {preview.kind === "stock" && <StockMock />}
       </div>
     </figure>
+  );
+}
+
+// O site de verdade rodando dentro de um celular, com as animações dele ao vivo (dá para tocar).
+// O iframe abre em 390 × 840 (largura de celular) e é reduzido a 2/3 para caber na tela de 260 × 560.
+function LivePhone({ url, address }: { url: string; address: string }) {
+  return (
+    <div className="flex justify-center rounded-md border border-paper/10 bg-[radial-gradient(55%_60%_at_50%_55%,rgb(227_38_27/0.22),transparent)] px-4 py-10">
+      <Iphone>
+        <iframe
+          src={url}
+          title={`Site ${address} funcionando`}
+          loading="lazy"
+          className="absolute left-0 top-0 h-[840px] w-[390px] origin-top-left scale-[0.6667] border-0"
+        />
+      </Iphone>
+    </div>
   );
 }
 

@@ -54,7 +54,7 @@ export const content = {
     },
   ],
   // Serviços tirados do que já está no ar (GitHub + Vercel). "work" é a prova: onde você já fez.
-  // "preview" é o que aparece na tela ao lado: print real (image), os 3 sites (sites) ou
+  // "preview" é o que aparece na tela ao lado: print real (image), os 3 sites (sites), site rodando num celular (live) ou
   // miniatura do painel/estoque desenhada em código (panel/stock), porque o painel real exige login.
   services: [
     {
@@ -126,7 +126,7 @@ export const content = {
     },
     {
       title: "Convites e eventos",
-      preview: { kind: "image", src: "/servicos/convite.webp", address: "sthefany-ruan.vercel.app" },
+      preview: { kind: "live", url: "https://sthefany-ruan.vercel.app/", address: "sthefany-ruan.vercel.app" },
       summary: "Convite online com confirmação de presença e lista de presentes.",
       features: [
         "Data, local e programação do dia",
