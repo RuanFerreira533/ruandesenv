@@ -26,7 +26,7 @@ export default function Projects() {
         {content.projects.map((p, i) => (
           <li key={p.url} className="reveal" style={{ "--i": i } as CSSProperties}>
             <a href={p.url} target="_blank" rel="noopener noreferrer" className="group block">
-              <div className="reveal-clip relative aspect-[16/10] overflow-hidden rounded-sm border border-paper/10 bg-paper/5">
+              <div className="reveal-clip relative aspect-[16/10] overflow-clip rounded-sm border border-paper/10 bg-paper/5">
                 <Image
                   src={p.image}
                   alt={`Página inicial do site ${p.title}`}

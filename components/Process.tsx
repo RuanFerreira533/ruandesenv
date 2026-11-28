@@ -1,15 +1,20 @@
 import { MessageSquareIcon, PencilRulerIcon, RefreshCwIcon, RocketIcon } from "lucide-react";
 import type { CSSProperties } from "react";
 import { content } from "@/content";
+import { ChatDemo, DraftDemo, LiveDemo, TweakDemo } from "./ProcessDemos";
 import SectionHeading from "./SectionHeading";
 import { Timeline, type TimelineItem } from "./ui/timeline";
 
 const stepIcons = [MessageSquareIcon, PencilRulerIcon, RefreshCwIcon, RocketIcon];
+// Exemplo de cada etapa, na mesma ordem de content.process.
+const stepDemos = [ChatDemo, DraftDemo, TweakDemo, LiveDemo];
 
-// Etapas no modelo de timeline: as anteriores em vermelho contornado, a última ("No ar") preenchida.
+// Linha do tempo no centro, etapas alternando de lado e, do outro lado, o exemplo da etapa acontecendo.
+// As anteriores em vermelho contornado, a última ("No ar") preenchida.
 export default function Process() {
   const items: TimelineItem[] = content.process.map((step, i) => {
     const Icon = stepIcons[i % stepIcons.length];
+    const Demo = stepDemos[i % stepDemos.length];
     return {
       id: step.title,
       label: `Etapa ${String(i + 1).padStart(2, "0")}`,
@@ -22,34 +27,33 @@ export default function Process() {
           {step.detail}
         </span>
       ),
+      aside: <Demo />,
     };
   });
 
   return (
     <section id="processo" className="relative bg-ink px-5 py-20 md:px-10 md:py-28">
-      <SectionHeading label="03 / Como trabalho" title="Do primeiro oi ao site no ar" />
+      <SectionHeading
+        label="03 / Como trabalho"
+        title="Do primeiro oi ao site no ar"
+        aside={
+          <div className="reveal max-w-[36ch]" style={{ "--i": 1 } as CSSProperties}>
+            <p className="text-base leading-relaxed text-paper/60 md:text-lg">
+              Quatro etapas, tudo pelo WhatsApp. O site só vai ao ar quando você aprovar.
+            </p>
+            <a
+              href={content.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-block bg-signal px-6 py-3 text-sm font-semibold transition-colors hover:bg-paper hover:text-ink md:text-base"
+            >
+              Começar pelo WhatsApp
+            </a>
+          </div>
+        }
+      />
 
-      <div className="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)]">
-        <div className="lg:sticky lg:top-24 lg:self-start">
-          <p className="reveal max-w-[24ch] text-xl leading-snug text-paper/85 md:text-3xl">
-            Quatro etapas, tudo pelo WhatsApp.
-          </p>
-          <p className="reveal mt-4 max-w-[38ch] text-sm leading-relaxed text-paper/55 md:text-lg" style={{ "--i": 0.2 } as CSSProperties}>
-            Você acompanha cada passo e o site só vai ao ar quando você aprovar.
-          </p>
-          <a
-            href={content.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="reveal mt-10 inline-block bg-signal px-6 py-3 text-sm font-semibold transition-colors hover:bg-paper hover:text-ink md:px-8 md:py-4 md:text-base"
-            style={{ "--i": 0.3 } as CSSProperties}
-          >
-            Começar pelo WhatsApp
-          </a>
-        </div>
-
-        <Timeline items={items} variant="spacious" />
-      </div>
+      <Timeline items={items} variant="spacious" className="mt-16 md:mt-24" />
     </section>
   );
 }

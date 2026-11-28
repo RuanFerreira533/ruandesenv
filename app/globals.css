@@ -116,7 +116,9 @@
     .reveal-clip,
     .reveal-zoom,
     .reveal-line,
-    .reveal-pop {
+    .reveal-pop,
+    .grow-y,
+    .recolor {
       animation-timing-function: linear;
       animation-fill-mode: both;
       animation-timeline: view();
@@ -143,6 +145,33 @@
     .reveal-pop {
       animation-name: pop;
     }
+    .grow-y {
+      animation-name: grow-y;
+      transform-origin: bottom;
+    }
+    .recolor {
+      animation-name: recolor;
+    }
+
+    /* Exemplos de "Como trabalho" (ProcessDemos): cada passo acontece enquanto o card sobe da parte
+       de baixo até o meio da tela, um depois do outro (--i), em vez de tudo junto na entrada. */
+    .demo :is(.reveal, .reveal-x, .reveal-pop, .grow-y, .recolor) {
+      animation-range: cover calc(12% + var(--i, 0) * 7%) cover calc(24% + var(--i, 0) * 7%);
+    }
+    /* Rascunho → primeira versão: a divisória atravessa o card e o site pronto aparece atrás dela. */
+    .wipe,
+    .wipe-handle {
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: cover 20% cover 50%;
+    }
+    .wipe {
+      animation-name: wipe;
+    }
+    .wipe-handle {
+      animation-name: wipe-handle;
+    }
 
     /* Linha do tempo de "Como trabalho": a "tela" da linha termina no meio da viewport
        (inset de 50% embaixo), então o progresso é o quanto da linha já passou do meio da tela. */
@@ -161,6 +190,40 @@
       animation-timeline: view(block 0% 50%);
       animation-range: entry-crossing 0% entry-crossing 100%;
     }
+  }
+}
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes recolor {
+  from {
+    background-color: rgb(243 238 232 / 0.15);
+    color: rgb(243 238 232 / 0.6);
+  }
+}
+/* Sem suporte a animação por rolagem: rascunho à esquerda e site pronto à direita, divididos no meio. */
+.wipe {
+  clip-path: inset(0 0 0 50%);
+}
+.wipe-handle {
+  left: 50%;
+}
+@keyframes wipe {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0%);
+  }
+}
+@keyframes wipe-handle {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
   }
 }
 /* Serviços: a tela entra como cortina quando a pessoa troca de serviço (resposta a uma ação). */
