@@ -56,9 +56,9 @@ function LivePhone({ url, address }: { url: string; address: string }) {
   );
 }
 
-// Os três sites no ar, em leque.
+// Os três sites no ar, em leque. O do meio fica na frente: Thomás Barbosa é o principal.
 function Sites() {
-  const shots = content.projects.map((p) => p.image);
+  const shots = ["mauro-junior-tattoo", "thomasbarbosa", "charme-barbershop"].map((n) => `/projetos/${n}.webp`);
   return (
     <div className="absolute inset-0 bg-[radial-gradient(60%_70%_at_50%_100%,rgb(227_38_27/0.25),transparent)]">
       {shots.map((src, i) => (

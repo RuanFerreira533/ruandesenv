@@ -53,24 +53,19 @@ export const content = {
       image: "/projetos/thomasbarbosa.webp",
     },
   ],
-  // Serviços tirados do que já está no ar (GitHub + Vercel). "work" é a prova: onde você já fez.
+  // Serviços tirados do que já está no ar (GitHub + Vercel).
   // "preview" é o que aparece na tela ao lado: print real (image), os 3 sites (sites), site rodando num celular (live) ou
   // miniatura do painel/estoque desenhada em código (panel/stock), porque o painel real exige login.
   services: [
     {
       title: "Sites e landing pages",
-      preview: { kind: "sites", address: "mauro-junior-tattoo.vercel.app" },
+      preview: { kind: "sites", address: "thomasbarbosa.vercel.app" },
       summary: "Páginas rápidas que levam o visitante a chamar no WhatsApp, pedir orçamento ou agendar.",
       features: [
         "Página única ou site com várias seções",
         "Botões e formulário que abrem o WhatsApp",
         "Avaliações, mapa e perguntas frequentes",
         "Rápido no celular e pronto para o Google",
-      ],
-      work: [
-        { name: "Mauro Junior Tattoo", url: "https://mauro-junior-tattoo.vercel.app/" },
-        { name: "Thomás Barbosa", url: "https://thomasbarbosa.vercel.app/" },
-        { name: "Charme Barbearia", url: "https://charme-barbershop.vercel.app/" },
       ],
     },
     {
@@ -83,7 +78,6 @@ export const content = {
         "Conta do cliente para acompanhar os horários",
         "Agenda da semana com agendado, confirmado, concluído e faltou",
       ],
-      work: [{ name: "Charme Barbearia", url: "https://charme-barbershop.vercel.app/agendar.html" }],
     },
     {
       title: "Sistema de gestão",
@@ -95,7 +89,6 @@ export const content = {
         "Caixa com pagamento dividido e fechamento do dia",
         "Financeiro, despesas e relatório de lucro",
       ],
-      work: [{ name: "Painel da Charme Barbearia", url: "https://charme-barbershop.vercel.app/" }],
     },
     {
       title: "Controle de estoque",
@@ -107,21 +100,16 @@ export const content = {
         "Custo e margem de cada produto nos relatórios",
         "Histórico de quem mexeu e por quê",
       ],
-      work: [{ name: "Charme Barbearia", url: "https://charme-barbershop.vercel.app/" }],
     },
     {
       title: "Catálogos",
-      preview: { kind: "image", src: "/servicos/catalogo.webp", address: "charme-barbershop.vercel.app/catalogo" },
+      preview: { kind: "image", src: "/servicos/catalogo-mauro.webp", address: "mauro-junior-tattoo.vercel.app/anime" },
       summary: "Serviços e produtos com preço claro, para o cliente escolher antes de chamar.",
       features: [
         "Preços diferentes por dia da semana",
         "Produtos para separar pelo WhatsApp",
         "Páginas por categoria ou por estilo",
         "Produtos e preços puxados do painel",
-      ],
-      work: [
-        { name: "Catálogo da Charme", url: "https://charme-barbershop.vercel.app/catalogo.html" },
-        { name: "Estilos do Mauro Junior", url: "https://mauro-junior-tattoo.vercel.app/" },
       ],
     },
     {
@@ -134,7 +122,6 @@ export const content = {
         "Presentes com chave PIX para copiar",
         "Fotos e botão para abrir o mapa",
       ],
-      work: [{ name: "Convite Sthefany e Ruan", url: "https://sthefany-ruan.vercel.app/" }],
     },
   ],
   process: [

@@ -78,36 +78,16 @@ export default function Services() {
 
 function Details({ service }: { service: Service }) {
   return (
-    <div className="mt-8 grid gap-8 xl:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-      <div>
-        <p className="max-w-[46ch] text-lg leading-snug text-paper/85 md:text-xl">{service.summary}</p>
-        <ul className="mt-6 grid gap-x-6 gap-y-3 sm:grid-cols-2">
-          {service.features.map((f) => (
-            <li key={f} className="flex gap-3 text-sm leading-snug text-paper/65 md:text-base">
-              <span aria-hidden className="mt-1.5 size-2 shrink-0 bg-signal" />
-              {f}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <p className="mb-3 text-sm text-paper/45">Já fiz para</p>
-        <ul className="flex flex-wrap gap-2">
-          {service.work.map((w) => (
-            <li key={w.name}>
-              <a
-                href={w.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-paper/20 px-4 py-2 text-sm transition-colors hover:border-signal hover:bg-signal"
-              >
-                {w.name}
-                <span aria-hidden>↗</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="mt-8">
+      <p className="max-w-[52ch] text-lg leading-snug text-paper/85 md:text-xl">{service.summary}</p>
+      <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+        {service.features.map((f) => (
+          <li key={f} className="flex gap-3 text-sm leading-snug text-paper/65 md:text-base">
+            <span aria-hidden className="mt-1.5 size-2 shrink-0 bg-signal" />
+            {f}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
