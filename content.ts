@@ -103,7 +103,7 @@ export const content = {
     },
     {
       title: "Catálogos",
-      preview: { kind: "image", src: "/servicos/catalogo-mauro.webp", address: "mauro-junior-tattoo.vercel.app/#estilos" },
+      preview: { kind: "image", src: "/servicos/catalogo-mauro-estilos.webp", address: "mauro-junior-tattoo.vercel.app/#estilos" },
       summary: "Serviços e produtos com preço claro, para o cliente escolher antes de chamar.",
       features: [
         "Preços diferentes por dia da semana",
