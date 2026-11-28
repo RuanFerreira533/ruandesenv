@@ -54,9 +54,12 @@ export const content = {
     },
   ],
   // Serviços tirados do que já está no ar (GitHub + Vercel). "work" é a prova: onde você já fez.
+  // "preview" é o que aparece na tela ao lado: print real (image), os 3 sites (sites) ou
+  // miniatura do painel/estoque desenhada em código (panel/stock), porque o painel real exige login.
   services: [
     {
       title: "Sites e landing pages",
+      preview: { kind: "sites", address: "mauro-junior-tattoo.vercel.app" },
       summary: "Páginas rápidas que levam o visitante a chamar no WhatsApp, pedir orçamento ou agendar.",
       features: [
         "Página única ou site com várias seções",
@@ -72,6 +75,7 @@ export const content = {
     },
     {
       title: "Agendamento online",
+      preview: { kind: "image", src: "/servicos/agendamento.webp", address: "charme-barbershop.vercel.app/agendar" },
       summary: "O cliente escolhe serviço, profissional e horário pelo site. Você confirma pelo WhatsApp.",
       features: [
         "Horários por profissional e por dia da semana",
@@ -83,6 +87,7 @@ export const content = {
     },
     {
       title: "Sistema de gestão",
+      preview: { kind: "panel", address: "charme-barbershop.vercel.app/painel" },
       summary: "Um painel para o dono controlar o dia a dia: agenda, clientes, vendas e dinheiro.",
       features: [
         "Clientes com histórico e lista de quem sumiu para chamar de novo",
@@ -94,6 +99,7 @@ export const content = {
     },
     {
       title: "Controle de estoque",
+      preview: { kind: "stock", address: "charme-barbershop.vercel.app/painel" },
       summary: "Cada produto com custo, preço e quantidade. Toda entrada, venda e perda fica registrada.",
       features: [
         "Entradas, vendas, devoluções, perdas e ajustes",
@@ -105,6 +111,7 @@ export const content = {
     },
     {
       title: "Catálogos",
+      preview: { kind: "image", src: "/servicos/catalogo.webp", address: "charme-barbershop.vercel.app/catalogo" },
       summary: "Serviços e produtos com preço claro, para o cliente escolher antes de chamar.",
       features: [
         "Preços diferentes por dia da semana",
@@ -119,6 +126,7 @@ export const content = {
     },
     {
       title: "Convites e eventos",
+      preview: { kind: "image", src: "/servicos/convite.webp", address: "sthefany-ruan.vercel.app" },
       summary: "Convite online com confirmação de presença e lista de presentes.",
       features: [
         "Data, local e programação do dia",

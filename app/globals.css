@@ -163,6 +163,22 @@
     }
   }
 }
+/* Serviços: a tela entra como cortina quando a pessoa troca de serviço (resposta a uma ação). */
+@media (prefers-reduced-motion: no-preference) {
+  .screen-in {
+    animation: screen-in 0.55s cubic-bezier(0.2, 0.7, 0.1, 1) both;
+  }
+}
+@keyframes screen-in {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.4;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
 @keyframes light-up {
   from {
     border-color: rgb(243 238 232 / 0.2);
